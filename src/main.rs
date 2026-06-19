@@ -78,6 +78,14 @@ fn main() -> Result<()> {
                     }
                 }
 
+                FileKind::Elf64 |
+                FileKind::Elf32 => {
+                    println!("Binary symbols: ");
+                    for symbol in obj.symbols() {
+                        println!(" {} at {} ", symbol.name().unwrap_or("<unknown>"), symbol.address());
+                    }
+                }
+
                 _ => {}
             }
 
