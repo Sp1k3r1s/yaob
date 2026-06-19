@@ -4,7 +4,7 @@ use clap::{Parser, Subcommand};
 use std::fs;
 
 #[derive(Parser)]
-#[command(name = "yaob")]
+#[command(about, version, after_help = "Yet another binary file info dumper and disassembler.")]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -12,6 +12,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
+    // Parse symbols, imports and exports if found
     ParseSIE {
         file: String,
     },
