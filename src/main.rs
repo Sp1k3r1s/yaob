@@ -89,11 +89,6 @@ fn main() -> Result<()> {
 
                 _ => {}
             }
-
-            println!("Detected symbols in the binary:");
-            for symbols in obj.symbols() {
-                println!(" {} at 0x{}", symbols.name().unwrap_or("<unknown>"), symbols.address());
-            }
         }
     }
 
